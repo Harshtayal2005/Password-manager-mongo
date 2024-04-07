@@ -37,6 +37,9 @@ const Manager = () => {
     };
 
     setpasswordArray([...passwordArray, newObj]);
+    siteRef.current.value = "";
+    userNameRef.current.value = "";
+    pwdRef.current.value = "";
 
     let res = await fetch("http://localhost:9999/", {
       method: "POST",
@@ -44,9 +47,7 @@ const Manager = () => {
       body: JSON.stringify(newObj),
     });
 
-    siteRef.current.value = "";
-    userNameRef.current.value = "";
-    pwdRef.current.value = "";
+    
   };
 
   const deletePassword = async (id) => {
